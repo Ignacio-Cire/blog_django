@@ -20,3 +20,8 @@ def lista_noticias(request):
         'noticias': noticias,
         'form': form  # Pasa el formulario al template
     })
+
+
+def noticias_por_categoria(request, categoria):
+    noticias = Noticia.objects.filter(categoria=categoria)
+    return render(request, 'noti_blog/lista_noticias.html', {'noticias': noticias})

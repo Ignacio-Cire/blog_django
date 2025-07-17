@@ -4,4 +4,4 @@ from .models import Noticia
 class NoticiaForm(forms.ModelForm):
     class Meta:
         model = Noticia
-        fields = ['titulo', 'contenido']  # Campos que se mostrarán en el formulario
+        fields = ['titulo', 'contenido', 'categoria']  # Campos que se mostrarán en el formulario
