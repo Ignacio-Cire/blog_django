@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NotiBlog - Estilo Clarín</title>
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .header {
+            background: white;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+        .menu {
+            display: flex;
+            gap: 20px;
+            padding: 10px 20px;
+            background: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+            overflow-x: auto; /* Para móviles */
+        }
+        .menu span {
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .noticia-destacada {
+            background: #fff9f9;
+            border-left: 4px solid #c00;
+            padding: 15px;
+            margin: 20px;
+        }
+        .noticia {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .noticia h3 {
+            margin-top: 0;
+            color: #c00;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1. Header -->
+    <div class="header">
+        <h1>NotiBlog®</h1>
+    </div>
+    
+    <!-- 2. Menú -->
+    <div class="menu">
+        <span>POLÍTICA</span>
+        <span>ECONOMÍA</span>
+        <span>SOCIEDAD</span>
+        <span>DEPORTES</span>
+        <span>ESPECTÁCULOS</span>
+    </div>
+
+    <!-- 3. Noticia destacada (fija por ahora) -->
+    <div class="noticia-destacada">
+        <h2>Noticia destacada del día</h2>
+        <p>Este es un espacio para tu noticia más importante. Puedes destacarla con un estilo diferente.</p>
+        <p><small>Por: Redacción</small></p>
+    </div>
+
+    <!-- 4. Lista de noticias (desde tu BD) -->
+    {% for noticia in noticias %}
+    <div class="noticia">
+        <h3>{{ noticia.titulo }}</h3>
+        <p>{{ noticia.contenido }}</p>
+        <p><small>Por: Admin</small></p>
+    </div>
+    {% endfor %}
+</body>
+</html>
