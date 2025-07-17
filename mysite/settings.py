@@ -5,6 +5,8 @@ SECRET_KEY = 'django-insecure-clave-secreta-temporal'  # ¡Cambia esto en produc
 DEBUG = True  # Solo para desarrollo
 ALLOWED_HOSTS = ['*']  # Permite cualquier host (ajusta en producción)
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Apps instaladas
 INSTALLED_APPS = [

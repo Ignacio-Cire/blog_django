@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect  # Añade 'redirect'
+from .models import Noticia, Category 
+from django.shortcuts import render, get_object_or_404
 from .models import Noticia
 from .forms import NoticiaForm  # Asegúrate de tener forms.py (paso siguiente)
 
@@ -22,6 +24,15 @@ def lista_noticias(request):
     })
 
 
-def noticias_por_categoria(request, categoria):
-    noticias = Noticia.objects.filter(categoria=categoria)
-    return render(request, 'noti_blog/lista_noticias.html', {'noticias': noticias})
+def noticias_por_categoria(request):
+    categoria = get_object_or_404(Category, name='DEPORTES')
+    noticias = Noticia.objects.filter(categoria=categoria)  # Filtra por objeto
+    return render(request, 'noti_blog/deportes.html', {'noticias': noticias})
+
+def deportes(request):
+    categoria_deportes = Category.objects.get(name='DEPORTES')
+    noticias_deportes = Noticia.objects.filter(categoria=categoria_deportes)
+    return render(request, 'noti_blog/deportes.html', {
+        'noticias': noticias_deportes,
+        'categoria': categoria_deportes
+    })

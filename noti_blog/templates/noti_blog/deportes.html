@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Noticias de Deportes</title>
+</head>
+<body>
+    <h1>titulo de noticia.</h1>
+    
+    {% for noticia in noticias %}
+    <div class="noticia">
+        <h2>{{ noticia.titulo }}</h2>
+        {% if noticia.imagen %}
+            <img src="{{ noticia.imagen.url }}" alt="{{ noticia.titulo }}" width="300">
+        {% endif %}
+        <p>{{ noticia.contenido|truncatewords:30 }}</p>
+        {% if noticia.enlace_externo %}
+            <a href="{{ noticia.enlace_externo }}" target="_blank">Leer más</a>
+        {% endif %}
+    </div>
+    {% endfor %}
+</body>
+</html>
